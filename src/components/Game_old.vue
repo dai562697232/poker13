@@ -1,17 +1,164 @@
 <template>
-  <div style="padding-top: 5vh" id="container">
+  <div style="height: 100%">
 
+    <!--<img src="../assets/card-imgs/ace_of_clubs.png"/>-->
+
+
+    <!--<b-img v-bind:src="testUrl"  width="130px" height="190px"/>-->
+    <!--玩家1区域-->
+    <div>
+      <a-row>
+        <a-col span="8">
+          <a-button type="primary" @click="sendPoker">在线荷官 性感发牌</a-button>
+        </a-col>
+        <a-col span="8" style="height:100%">
+          <a-card style="background-color: bisque;">
+            <h1>至死不渝丶震</h1>
+          </a-card>
+        </a-col>
+        <a-col span="8">
+          <a-button>开始游戏</a-button>
+        </a-col>
+      </a-row>
+    </div>
+    <!--玩家2区域-->
+
+    <div>
+      <a-row>
+
+        <a-col span="6">
+          <a-card style="background-color: bisque">
+            <h1>天下爱我的</h1>
+          </a-card>
+        </a-col>
+        <a-col span="12">
+          <a-card style="background-color: green">
+
+            <img src="../assets/card-imgs/poker_table.png"/>
+          </a-card>
+        </a-col>
+        <a-col span="6">
+          <a-card style="background-color: bisque">
+            <h1>雷胎神</h1>
+          </a-card>
+        </a-col>
+      </a-row>
+    </div>
+    <!--玩家4区域-->
+    <div>
+      <a-row>
+        <a-col span="9" offset="8">
+          <a-card>
+            <a-card-grid style="width: 33.333333333333333333333333333%" v-for="poker in poker_position.first" :key="poker.name">
+              <img :src="poker.imgUrl" style="width: 80%" height="150px"/>
+              <a-button>切换</a-button>
+            </a-card-grid>
+          </a-card>
+        </a-col>
+      </a-row>
+      <a-row>
+        <a-col span="16" offset="4">
+          <a-card>
+            <a-card-grid  style="width: 20%" v-for="poker in poker_position.second" :key="poker.name">
+              <img :src="poker.imgUrl"height="150px"/>
+              <a-button type="primary">切换</a-button>
+            </a-card-grid>
+          </a-card>
+        </a-col>
+      </a-row>
+      <a-row>
+        <a-col span="16" offset="4">
+          <a-card>
+            <a-card-grid  style="width: 20%" v-for="poker in poker_position.third" :key="poker.name">
+              <img :src="poker.imgUrl"height="150px"/>
+              <a-button>切换</a-button>
+            </a-card-grid>
+          </a-card>
+        </a-col>
+      </a-row>
+<!--      <a-row>
+        <a-col span="24">
+          <span style="margin: auto">头道</span>
+          <a-space :size="0" class="poker_img" v-for="poker in  poker_position.first" :key="poker.name">
+            <a-row>
+              <a-col span="24"><b-img :src="poker.imgUrl" width="100px"
+                                      height="150px"/>
+              </a-col>
+              <a-col span="24"><a-button style="width: 80%" block icon="setting"></a-button></a-col>
+            </a-row>
+          </a-space>
+        </a-col>
+      </a-row>
+
+      <a-row>
+        <a-col span="24">
+          <a-space :size="0" class="poker_img" v-for="poker in  poker_position.second" :key="poker.name">
+            <a-row>
+              <a-col span="24"><b-img :src="poker.imgUrl" width="100px"
+                                      height="150px"/>
+              </a-col>
+              <a-col span="24"><a-button style="width: 80%" block icon="setting"></a-button></a-col>
+            </a-row>
+          </a-space>
+        </a-col>
+      </a-row>
+      <a-row>
+        <a-col span="24">
+          <a-space :size="0" class="poker_img" v-for="poker in  poker_position.third" :key="poker.name">
+            <a-row>
+              <a-col span="24"><b-img :src="poker.imgUrl" width="100px"
+                                      height="150px"/>
+              </a-col>
+              <a-col span="24"><a-button style="width: 80%" block icon="setting"></a-button></a-col>
+            </a-row>
+          </a-space>
+        </a-col>
+      </a-row>-->
+
+
+
+
+      <!--<a-row>
+        <a-col span="24">
+          <div>
+              <a-space :size="0" class="poker_img" v-for="poker in  players.player1" :key="poker.name">
+                <a-row>
+                  <a-col span="24"><b-img :src="poker.imgUrl" width="100px"
+                                          height="150px"/>
+                    </a-col>
+                  <a-col span="24"><a-button style="width: 80%" block icon="setting"></a-button></a-col>
+                </a-row>
+              </a-space>
+          </div>
+        </a-col>
+      </a-row>-->
+    </div>
+
+
+    <!--    <b-row>
+          <b-col>
+            <h3>玩家2</h3>
+           <b-img class="poker_img" v-for="poker in players.player2" :key="poker.name" :src="poker.imgUrl" width="130px" height="190px"/>
+          </b-col>
+        </b-row>
+        <b-row>
+          <b-col>
+            <h3>玩家3</h3>
+           <b-img class="poker_img" v-for="poker in players.player3" :key="poker.name" :src="poker.imgUrl" width="130px" height="190px"/>
+          </b-col>
+        </b-row>
+        <b-row>
+          <b-col>
+            <h3>玩家4</h3>
+           <b-img class="poker_img" v-for="poker in players.player4" :key="poker.name" :src="poker.imgUrl" width="130px" height="190px"/>
+          </b-col>
+        </b-row>-->
   </div>
 </template>
 
 <script>
   import ACol from "ant-design-vue/es/grid/Col";
   import ARow from "ant-design-vue/es/grid/Row";
-  import Game from '@/game/game'
-
-  /*Game Configuration*/
-
-
 
   class Poker {
     constructor(color, value, name, imgUrl) {
@@ -120,6 +267,7 @@
   const color_en = ["spades", "hearts", "clubs", "diamonds"]
 
   export default {
+    name: "Game",
     components: {ARow, ACol},
     data() {
       return {
@@ -136,10 +284,10 @@
           player3: [Poker],
           player4: [Poker]
         },
-        poker_position: {
-          first: [],
-          second: [],
-          third: []
+        poker_position:{
+          first:[],
+          second:[],
+          third:[]
         }
       }
     },
@@ -263,29 +411,28 @@
           })
         }
         let copy = [...this.players.player1]
-        this.poker_position.first = copy.splice(0, 3)
-        this.poker_position.second = copy.splice(0, 5)
-        this.poker_position.third = copy.splice(0, 5)
+        this.poker_position.first = copy.splice(0,3)
+        this.poker_position.second = copy.splice(0,5)
+        this.poker_position.third = copy.splice(0,5)
         if (this.players.player1[0].value >= 6) {
-          alert("！")
+          alert("看看")
         }
       },
 
     },
 
-     mounted() {
-      /*this.initPokers()
-      this.sendPoker()*/
-      let gameInstance =  Game.launch("container")
+    mounted() {
+      this.initPokers()
+      this.sendPoker()
 
     }
   }
 </script>
 
 <style scoped>
-  /*  .poker_img:hover {
-      transform: scale(1.2); !* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) *!
-    }*/
+/*  .poker_img:hover {
+    transform: scale(1.2); !* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) *!
+  }*/
 
 
 </style>
